@@ -1,4 +1,4 @@
-package com.alta.hello.com.alta.hello.config;
+package com.alta.hello.config;
 
 import lombok.Getter;
 import org.springframework.context.annotation.Configuration;

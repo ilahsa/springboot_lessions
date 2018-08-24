@@ -1,4 +1,4 @@
-package com.alta.hello.com.alta.hello.domain;
+package com.alta.hello.domain;
 
 import lombok.Data;
 import lombok.Getter;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="CHAR_SET" value="UTF-8" />
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%d{yy-MM-dd HH:mm:ss.SSS}][%p][%t][%c:%line] - %m%n</pattern>
+        </layout>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.path}/logs/tracker.log</File>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[%d{yy-MM-dd HH:mm:ss.SSS}][%p][%t][%c][%line] - %m%n</pattern>
+            <charset>${CHAR_SET}</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${log.path}/logs/tracker-%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>50MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name ="ASYNC" class= "ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold >0</discardingThreshold>
+        <queueSize>1024</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref ="FILE"/>
+    </appender>
+
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="com.zaxxer.hikari" level="ERROR" />
+    <logger name="org.hibernate" level="ERROR" />
+    <logger name="io.netty" level="ERROR" />
+    <logger name="org.quartz" level="ERROR" />
+    <logger name="org.apache.http" level="ERROR" />
+    <logger name="com.amazonaws" level="ERROR" />
+    <logger name="io.lettuce" level="ERROR" />
+    <root level="DEBUG">
+        <appender-ref ref="ASYNC" />
+    </root>
+</configuration>

@@ -21,7 +21,7 @@ public class TextFilter {
         String text="你你你你是傻逼啊你，说你呢，你个大笨蛋。";
         System.out.println(textFilter.getSensitiveWords(text,MatchType.MAX_MATCH));
     }
-    
+
     /**
      * 初始化敏感词过滤的map
      * @param sensitiveWords 敏感词列表
