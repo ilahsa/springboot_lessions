@@ -2,12 +2,14 @@ package com.alta.hello.controller;
 
 
 import com.alta.hello.config.AltaConfig;
+import com.alta.hello.context.ApplicationContextProvider;
 import com.alta.hello.dao.impl.UserDao;
 import com.alta.hello.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,5 +45,17 @@ public class HelloWorldController {
         List<User> users =userDao.all();
         log.info(users.stream().findFirst().get().getName());
         return  user;
+    }
+
+    //全局异常信息的测试
+    @RequestMapping("/zeroex")
+    public int exceptionTest(){
+        return 100/0;
+    }
+
+    //测试ApplicationContext 容器
+    @RequestMapping("/testDemo")
+    public Object testDemo(){
+        return ApplicationContextProvider.getBean("testDemo");
     }
 }
