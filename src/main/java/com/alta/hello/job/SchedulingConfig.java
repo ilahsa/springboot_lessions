@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Configuration
 @EnableScheduling
 public class SchedulingConfig {
-    @Scheduled(cron = "0/5 * * * * ?") // 每5秒执行一次
+   // @Scheduled(cron = "0/5 * * * * ?") // 每5秒执行一次
     public void sheduleTest(){
         System.out.println(">>>>>>>>> SchedulingConfig.scheduler() "+System.currentTimeMillis());
     }

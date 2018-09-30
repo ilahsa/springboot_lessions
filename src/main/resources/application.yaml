@@ -12,3 +12,23 @@ spring:
       maximum-pool-size: 20
       minimum-idle: 10
       idle-timeout: 3
+mqtt:
+  serverName: NasManager_
+  host: tcp://10.10.40.227:1883
+  clientId: 1021
+  qos: 2
+  tmpDir: C:/log
+  retained: false
+  options:
+    connectiontimeout: 30
+    automaticReconnect: true
+    keepAliveInterval: 60
+    cleanSession: false
+    maxinflight: 100
+    userName: php
+    password: phpmq@123!
+  bufferOptions:
+    bufferSize: 1000
+    bufferEnabled: true
+    persistBuffer: false
+    deleteOldestMessages: false

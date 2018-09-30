@@ -20,12 +20,10 @@ public class IndexFilter2 implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("11111");
-        System.out.println("filter doFilter.");
+        //System.out.println("filter doFilter.");
         HttpServletRequest rr = (HttpServletRequest)servletRequest;
-        System.out.println(rr.getRequestURI());
+        //System.out.println(rr.getRequestURI());
         filterChain.doFilter(servletRequest,servletResponse);
-        System.out.println("22222");
     }
 
     @Override
