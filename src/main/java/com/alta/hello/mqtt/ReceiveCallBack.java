@@ -35,7 +35,6 @@ public class ReceiveCallBack implements MqttCallbackExtended {
         if (topic.indexOf("\n") >= 0) {
             topic = topic.replaceAll("\n","");
         }
-
         System.out.println("receive:"+topic);
         System.out.println("receive:"+payload);
         MsgInfo msgInfo = new MsgInfo();
