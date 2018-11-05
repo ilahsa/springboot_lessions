@@ -1,7 +1,7 @@
 package com.alta.hello.tools.core;
 
-import com.synative.cs.tools.exception.SysErrorMsg;
-import com.synative.cs.tools.exception.SysException;
+import com.alta.hello.tools.exception.SysErrorMsg;
+import com.alta.hello.tools.exception.SysException;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

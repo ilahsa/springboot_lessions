@@ -16,7 +16,7 @@ public class BaseUtil {
     }
 
     public static boolean isNullOrEmptyOrEmptyStr(String str) {
-        if (isNullOrEmpty(str) || com.synative.cs.tools.core.Consts.NULL_STR.equals(str.trim().toLowerCase())) {
+        if (isNullOrEmpty(str) || com.alta.hello.tools.core.Consts.NULL_STR.equals(str.trim().toLowerCase())) {
             return true;
         }
         return false;

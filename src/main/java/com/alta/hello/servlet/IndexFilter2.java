@@ -11,7 +11,7 @@ import java.io.IOException;
  * Created by baiba on 2018-09-14.
  */
 @Order(1)
-@WebFilter(urlPatterns = "/*", filterName = "indexFilter2")
+@WebFilter(urlPatterns = "/*", filterName = "indexFilter2",asyncSupported=true )
 public class IndexFilter2 implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

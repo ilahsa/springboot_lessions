@@ -1,5 +1,6 @@
 package com.alta.hello.tools.util;
 
+import com.google.common.base.Stopwatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cglib.beans.BeanMap;
@@ -9,6 +10,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by swann on 2018/05/16
@@ -16,6 +18,15 @@ import java.util.*;
 public class CommonUtils {
     public static final Logger logger = LoggerFactory.getLogger(CommonUtils.class);
 
+    // 计算代码的执行时间
+    public static  void tt(){
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        for(int i=0; i<100000; i++){
+
+        }
+        long nanos = stopwatch.elapsed(TimeUnit.MILLISECONDS);
+        System.out.println(nanos);
+    }
 
     public static int nullToZero(Object o) {
         if (o == null) {

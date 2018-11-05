@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 @Slf4j
 @RestController
@@ -105,4 +106,18 @@ public class HelloWorldController {
             return result;
         }
     }
+    //异步
+    @RequestMapping("/callable")
+    public Callable<String> callable() {
+        log.info("外部线程：" + Thread.currentThread().getName());
+        return new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                Thread.sleep(1000);
+                log.info("内部线程：" + Thread.currentThread().getName());
+                return "callable!";
+            }
+        };
+    }
+
 }
