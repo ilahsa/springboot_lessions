@@ -1,10 +1,13 @@
 package com.alta.hello;
 
+import com.alta.hello.tools.util.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -37,5 +40,10 @@ public class HelloApplication {
         executor.setThreadNamePrefix("alta-task-");
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         return executor;
+    }
+
+    @Bean
+    public RedisUtils redisUtils(StringRedisTemplate StringRedisTemplate, RedisTemplate redisTemplate) {
+        return new RedisUtils(StringRedisTemplate, redisTemplate);
     }
 }
